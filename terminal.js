@@ -1,9 +1,11 @@
 function write(message){
     process.stdout.write(message);
 }
+let date = new Date().toTimeString().substring(0,8);
+write(date); 
 
-write('Hello'); 
-
-setTimeout(() => {
-    write('\x1b[5D'); write('goodbye');
-}, 10_000);
+setInterval(() => {
+    write('\x1b[8D');
+    date = new Date().toTimeString().substring(0,8);
+    write(date);
+}, 1000);
